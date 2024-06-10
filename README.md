@@ -1,4 +1,4 @@
-# NSA-practical
+# NSA-practical (these answers might have some errors)
 ## Configure and test an FTP Server
 
 
