@@ -42,18 +42,34 @@ for key in grouped:
 
 **Steps:**
  **Configure RSA 2-Factor Authentication:**
-   - Install RSA Authentication Agent:
-     ```bash
-     sudo yum install rsa-agent
-     ```
-   - Configure the agent according to the RSA setup guide.
+1. Generate the ssh key pair using `ssh-keygen` command on the local system.
+ 
+
+3.	Upload the public key to the CentOS server.
+```
+cat ~/.ssh/id_rsa.pub | ssh username@remote_host "mkdir -p ~/.ssh && touch ~/.ssh/authorized_keys"
+```
+4.	Change the file permissions using the commands ‘chmod 700 ~/.ssh/’ and ‘chmod 600 ~/.ssh/authorized_keys’ and then reload the service.
+ ```
+chmod 700 ~/.ssh/
+chmod 600 ~/.ssh/authorized_keys
+systemctl reload sshd
+```
+
+5.	Login to the CentOS server from the local computer.
+ ```
+ssh username@ip
+```
+
 
 **Install Apache Server:**
    - Install Apache:
      ```bash
-     sudo yum install httpd
+     sudo yum install httpd firewalld
      sudo systemctl start httpd
      sudo systemctl enable httpd
+     sudo firewall-cmd --permanent --add-service=http
+     sudo firewall-cmd --reload
      ifconfig
      ```
      After ifconfig, paste the ipaddress in the browser.
