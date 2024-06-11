@@ -54,7 +54,9 @@ for key in grouped:
      sudo yum install httpd
      sudo systemctl start httpd
      sudo systemctl enable httpd
+     ifconfig
      ```
+     After ifconfig, paste the ipaddress in the browser.
 
 ### SET B
 
