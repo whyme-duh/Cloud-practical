@@ -109,11 +109,8 @@ for key in grouped:
 
 
 **Configure RSA 2-Factor Authentication:**
-   - Install RSA Authentication Agent:
-     ```bash
-     sudo yum install rsa-agent
-     ```
-   - Configure the agent according to the RSA setup guide.
+same as above
+
 **Install MariaDB Server:**
    - Install MariaDB:
      ```bash
